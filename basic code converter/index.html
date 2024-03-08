@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Converter</title>
+</head>
+<body>
+    <h1>Code Converter</h1>
+    <label for="codeType">Select code type:</label>
+    <select id="codeType">
+        <option value="js">JavaScript to Python</option>
+        <option value="py">Python to JavaScript</option>
+        
+    </select><br><br>
+    <textarea id="inputCode" rows="10" cols="50"></textarea><br><br>
+    <button onclick="convertCode()">Convert</button><br><br>
+    <textarea id="outputCode" rows="10" cols="50"></textarea>
+
+    <script>
+        function js_to_python(js_code) {
+            var python_code = js_code
+                .replace(/console\.log\((.*?)\);?/g, "print($1)\n")
+                .replace(/var\s(.*?);/g, "let $1\n")
+                .replace(/function\s(.*?)\((.*?)\)\s*{/g, "def $1($2):")
+                .replace(/(.*?)\((.*?)\);?/g, "$1($2)\n")
+                .replace(/\/\*(.*?)\*\//g, "'''\n$1'''")
+                .replace(/\/\/(.*)/g, "#$1")
+                .replace(/\.(?=[a-zA-Z])/g, ".");
+            return python_code;
+        }
+
+        function python_to_js(python_code) {
+            var js_code = python_code
+                .replace(/print\((.*?)\);?/g, "console.log($1);\n")
+                .replace(/let\s(.*?);/g, "var $1;\n")
+                .replace(/def\s(.*?)\((.*?)\):/g, "function $1($2) {")
+                .replace(/(.*?)\((.*?)\);?/g, "$1($2);\n")
+                .replace(/'''\n(.*?)'''/g, "/*$1*/")
+                .replace(/#(.*)/g, "\/$1")
+                .replace(/\.(?=[a-zA-Z])/g, ".");
+            return js_code;
+        }
+
+        function convertCode() {
+            var codeType = document.getElementById("codeType").value;
+            var inputCode = document.getElementById("inputCode").value;
+            var outputCode = document.getElementById("outputCode");
+
+            if (codeType === "js") {
+                outputCode.value = js_to_python(inputCode);
+            } else {
+                outputCode.value = python_to_js(inputCode);
+            }
+        }
+    </script>
+</body>
+</html>
