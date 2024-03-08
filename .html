@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Converter</title>
+    <script src=".js"></script>
+    <script src="pythonToJavaScript.js"></script>
+    <link rel="stylesheet" href=".css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Code Converter</h1>
+    <label for="pythonCode">Python Code:</label><br>
+    <textarea id="pythonCode"></textarea><br>
+    <button onclick="convertToJavaScript()">Convert to JavaScript</button>
+    <button onclick="convertToCpp()">Convert to C++</button><br><br>
+    
+    <label for="javascriptCode">JavaScript Code:</label><br>
+    <textarea id="javascriptCode"></textarea><br>
+    <button onclick="convertToPython()">Convert to Python</button>
+    <button onclick="convertToCpp()">Convert to C++</button><br><br>
+
+    <label for="cppCode">C++ Code:</label><br>
+    <textarea id="cppCode"></textarea><br>
+    <button onclick="convertToPython()">Convert to Python</button>
+    <button onclick="convertToJavaScript()">Convert to JavaScript</button><br><br>
+
+    <script>
+        function convertToJavaScript() {
+            var pythonCode = document.getElementById('pythonCode').value;
+            // You would implement the conversion logic from Python to JavaScript here
+            // For demonstration purposes, let's just set JavaScript code to the same as Python code
+            document.getElementById('javascriptCode').value = pythonCode;
+        }
+
+        function convertToPython() {
+            var javascriptCode = document.getElementById('javascriptCode').value;
+            // You would implement the conversion logic from JavaScript to Python here
+            // For demonstration purposes, let's just set Python code to the same as JavaScript code
+            document.getElementById('pythonCode').value = javascriptCode;
+        }
+
+        function convertToCpp() {
+            var pythonCode = document.getElementById('pythonCode').value;
+            // You would implement the conversion logic from Python to C++ here
+            // For demonstration purposes, let's just set C++ code to the same as Python code
+            document.getElementById('cppCode').value = pythonCode;
+        }
+    </script>
+</body>
+</html>

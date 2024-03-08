@@ -1,0 +1,75 @@
+/* Reset default margin and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+}
+
+/* Set body background color and font family */
+body {
+    font-family: Arial, sans-serif;
+    background-color:darkcyan;
+    padding: 50px;
+}
+
+/* Style the main heading */
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Style the form container */
+.form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style form labels */
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Style form input fields */
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 5px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+/* Style submit button */
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border:black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Style result container */
+#result {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #dff0d8;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    color: #155724;
+}
+
+/* Error message style */
+.error {
+    color: red;
+    margin-top: 10px;
+    text-align: center;
+}
